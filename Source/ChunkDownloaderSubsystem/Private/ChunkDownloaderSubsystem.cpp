@@ -13,6 +13,12 @@ DEFINE_LOG_CATEGORY(LogChunkDownloaderSubsystem)
 void UChunkDownloaderSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 {
 	Super::Initialize(Collection);
+	if (TArray EditorWorlds = { EWorldType::PIE, EWorldType::Editor, EWorldType::EditorPreview }; EditorWorlds.Contains(GetWorld()->WorldType))
+	{
+		UE_LOG(LogChunkDownloaderSubsystem, Log, TEXT("Initialize::In editor world"))
+		Deinitialize();
+		return;
+	}
 	Settings = GetDefault<UChunkDownloaderSubsystemRuntimeSettings>();
 	
 	// initialize the chunk downloader with chosen platform
@@ -29,6 +35,7 @@ void UChunkDownloaderSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 
 void UChunkDownloaderSubsystem::Deinitialize()
 {
+	UE_LOG(LogChunkDownloaderSubsystem, Log, TEXT("Deinitialize::Shutting down"))
 	Super::Deinitialize();
 	// Shut down ChunkDownloader
 	FChunkDownloader::Shutdown();
