@@ -27,6 +27,13 @@ void UChunkDownloaderSubsystem::Initialize(FSubsystemCollectionBase& Collection)
 	Downloader->UpdateBuild(Settings->DeploymentName, Settings->ContentBuildId, UpdateCompleteCallback);
 }
 
+void UChunkDownloaderSubsystem::Deinitialize()
+{
+	Super::Deinitialize();
+	// Shut down ChunkDownloader
+	FChunkDownloader::Shutdown();
+}
+
 FChunkDownloaderProgress UChunkDownloaderSubsystem::GetLoadingProgress()
 {
 	// Get a reference to ChunkDownloader

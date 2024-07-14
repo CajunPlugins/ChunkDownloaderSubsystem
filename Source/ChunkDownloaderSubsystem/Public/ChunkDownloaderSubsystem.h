@@ -21,7 +21,10 @@ class CHUNKDOWNLOADERSUBSYSTEM_API UChunkDownloaderSubsystem : public UGameInsta
 	GENERATED_BODY()
 
 public:
+	// Overrides
+	
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+	virtual void Deinitialize() override;
 	
 	// Gets the current progress of the patch
 	UFUNCTION(BlueprintPure, Category=ChunkDownloader)
