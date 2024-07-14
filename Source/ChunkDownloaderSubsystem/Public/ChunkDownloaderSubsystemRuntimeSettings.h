@@ -10,8 +10,6 @@ class CHUNKDOWNLOADERSUBSYSTEM_API UChunkDownloaderSubsystemRuntimeSettings : pu
 {
 	GENERATED_BODY()
 public:
-	UChunkDownloaderSubsystemRuntimeSettings();
-
 	UPROPERTY(Config, EditAnywhere, BlueprintReadOnly, Category=Config)
 	FString DeploymentName = "MyGame";
 

@@ -10,13 +10,7 @@ public class ChunkDownloaderSubsystem : ModuleRules
 	public ChunkDownloaderSubsystem(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-		PublicDependencyModuleNames.AddRange(new[] { "Core" });
-		PrivateDependencyModuleNames.AddRange(new[]
-		{
-			"CoreUObject",
-			"Engine",
-			"DeveloperSettings",
-			"ChunkDownloader"
-		});
+		PublicDependencyModuleNames.AddRange(new[] { "Core", "DeveloperSettings" });
+		PrivateDependencyModuleNames.AddRange(new[] { "CoreUObject", "Engine", "ChunkDownloader" });
 	}
 }
