@@ -16,7 +16,7 @@
 	"Installed": true,
 	"Modules": [
 		{
-			"Name": "%NAME%",
+			"Name": "ChunkDownloaderSubsystem",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
